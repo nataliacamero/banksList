@@ -22,7 +22,7 @@ La pantalla principal muestra una lista bancos obtenidos de un endpoint.
 
 Cada banco se muestra con el logo como un botón que lleva a la pantalla de detalles correspondiente.
 
-![Imagen Pantalla 1](pantalla_1)
+![Imagen Pantalla 1](pantalla_1.png)
 
 La pantalla de detalles muestra la informacion del banco seleccionado.
 
