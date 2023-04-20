@@ -10,9 +10,9 @@ export interface IResponse {
   id: string;
 }
 
-export type HomeScreenNavigationProp = NativeStackNavigationProp<
+export type BankDetailsScreenNavigationProp = NativeStackNavigationProp<
   StackParamList,
-  'Home'
+  'BankDetails'
 >;
 
-export type HomeRouteProp = RouteProp<StackParamList, 'Home'>;
+export type BankDetailsRouteProp = RouteProp<StackParamList, 'BankDetails'>;

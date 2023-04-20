@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const HeaderContainer = styled(View)`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #f8f8f8;
   width: 100%;
@@ -21,17 +21,6 @@ export const HeaderTwo = styled(Text)`
   color: #595959;
   align-self: center;
   text-align: center;
-`;
-
-export const Paragraph = styled(Text)`
-  font-size: 14px;
-  color: #595959;
-`;
-
-export const BoldParagraph = styled(Text)`
-  font-size: 16px;
-  font-weight: 700;
-  color: #020202;
 `;
 
 export default HeaderContainer;

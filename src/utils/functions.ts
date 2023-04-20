@@ -1,4 +1,3 @@
-import {SetStateAction} from 'react';
 import {IResponse} from '../context/types';
 
 export const generateId: () => string = () => {

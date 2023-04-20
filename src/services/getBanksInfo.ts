@@ -4,7 +4,6 @@ export const getBanksInfo = async () => {
   try {
     const response = await fetch(BANKS_INFO_URL);
     const data = await response?.json();
-    console.log('Data:--->', data && data);
     return data;
   } catch (error) {
     throw new Error('Error fetching Banks Info data');

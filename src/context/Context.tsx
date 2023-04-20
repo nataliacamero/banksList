@@ -1,8 +1,6 @@
-import React, {createContext, useEffect, useState} from 'react';
-import {IContextprops, IContextProvider, IResponse} from './types';
+import React, {createContext, useCallback, useEffect, useState} from 'react';
+import {IContextprops, IContextProvider} from './types';
 import getBanksInfo from '../services/getBanksInfo';
-import {generateId} from '../utils/functions';
-import useTransformGetData from '../hooks/customeHooks/useTransformGetData';
 
 export const Context = createContext<IContextprops>({
   banksInfo: [],
@@ -12,15 +10,19 @@ export const Context = createContext<IContextprops>({
 export const ContextProvider: React.FC<IContextProvider> = ({children}) => {
   const [banksInfo, setBanksInfo] = useState<IContextprops['banksInfo']>([]);
 
-  useEffect(() => {
-    if (banksInfo.length < 0) {
+  const fetchBanksInfo = useCallback(() => {
+    if (banksInfo.length <= 0) {
       getBanksInfo()
         .then(getData => {
-          setBanksInfo(() => useTransformGetData(getData));
+          setBanksInfo(getData);
         })
         .catch((error: {message: string}) => console.error(error.message));
     }
   }, [banksInfo]);
+
+  useEffect(() => {
+    fetchBanksInfo();
+  }, [fetchBanksInfo]);
 
   return (
     <Context.Provider

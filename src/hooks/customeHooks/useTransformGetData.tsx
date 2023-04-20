@@ -1,14 +1,31 @@
-import {SetStateAction, useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {addIdPropertyToBankInfo} from '../../utils/functions';
 import {IResponse} from '../../context/types';
+import {Context} from '../../context/Context';
 
-const useTransformGetData = (data: IResponse[]) => {
-  const [banksdata, setBanksData] = useState<IResponse[]>([]);
+const useTransformGetData = () => {
+  const {banksInfo} = useContext(Context);
+  const [banksData, setBanksData] = useState<IResponse[]>([]);
+  const [isloading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
   useEffect(() => {
-    if (banksdata.length < 0) setBanksData(addIdPropertyToBankInfo(data));
-  }, [banksdata, data]);
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        if (banksData.length === 0) {
+          setBanksData(addIdPropertyToBankInfo(banksInfo));
+        }
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(true);
+        //TODO: Ir a una pagina de error
+      }
+    };
 
-  return {banksdata};
+    fetchData();
+  }, [banksInfo]);
+
+  return {banksData, isloading, isError};
 };
 
 export default useTransformGetData;

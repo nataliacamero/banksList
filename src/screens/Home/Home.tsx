@@ -1,54 +1,14 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
-import {FlatList, Image, StatusBar, Text} from 'react-native';
-import {Header} from '../../components';
+import React from 'react';
+import {FlatList, StatusBar, Text} from 'react-native';
+import {CustomeLogo, Header} from '../../components';
 import {BoldParagraph, Container, SafeAreaStyled} from './styles';
-import {HomeScreenNavigationProp} from './types';
-import {generateId} from '../../utils/functions';
-import getBanksInfo from '../../services/getBanksInfo';
-
-interface IResponse {
-  age: number;
-  bankName: string;
-  description: string;
-  url: string;
-  id: string;
-}
-
-type ImageDimensions = {
-  width: number;
-  height: number;
-};
-
-const dimensionsImages = (itemName: string): ImageDimensions => {
-  const customeHeight = itemName === 'Banregio' ? 80 : 120;
-  return {
-    width: 160,
-    height: customeHeight,
-  };
-};
+import {HomeScreenNavigationProp, IResponse} from './types';
+import useTransformGetData from '../../hooks/customeHooks/useTransformGetData';
 
 const Home: () => JSX.Element = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const [data, setData] = useState<IResponse[] | null>(null);
-
-  useEffect(() => {
-    if (!data) {
-      getBanksInfo()
-        .then(dataService => {
-          let dataWithIdProperty =
-            dataService &&
-            dataService?.map((item: IResponse) => {
-              item.id = generateId();
-              console.log(item.url);
-
-              return item;
-            });
-          setData(dataWithIdProperty);
-        })
-        .catch((error: {message: string}) => console.error(error.message));
-    }
-  }, [data]);
+  const {banksData, isloading, isError} = useTransformGetData();
 
   return (
     <SafeAreaStyled>
@@ -56,21 +16,29 @@ const Home: () => JSX.Element = () => {
       <Header
         title={'Available Banks'}
         subtitle={'Find your preferred bank in our list of available banks.'}
-        testID="header-products-list"
+        testID="header-home"
       />
       <Container testID={`container-sku-product`}>
-        {data && data ? (
+        {isError && <BoldParagraph>Ocurrio un error.</BoldParagraph>}
+        {isloading && <BoldParagraph>Loading...</BoldParagraph>}
+        {banksData && banksData ? (
           <FlatList<IResponse>
-            data={data}
+            data={banksData}
             renderItem={({item}) => (
-              <Image
-                // eslint-disable-next-line react-native/no-inline-styles
-                style={dimensionsImages(item.bankName)}
+              <CustomeLogo
+                onPress={() =>
+                  navigation.navigate('BankDetails', {
+                    info: item,
+                  })
+                }
+                key={item.id}
+                bankName={item.bankName}
                 source={{
                   uri: `${item.url}`,
                 }}
               />
             )}
+            testID="banks-list"
           />
         ) : (
           <BoldParagraph>Loading...</BoldParagraph>
