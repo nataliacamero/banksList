@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home/> Should render the component 1`] = `
+<RCTSafeAreaView
+  className="sc-eDDNvR hDMTaq"
+>
+  <View
+    className="sc-beqWaB bCUvjq"
+  >
+    <Text
+      className="sc-gueYoa VqWBx"
+      testID="title-header-home"
+    >
+      Available Banks
+    </Text>
+    <Text
+      className="sc-dmqHEX cobd"
+      testID="subtitle-header-home"
+    >
+      Find your preferred bank in our list of available banks.
+    </Text>
+  </View>
+  <View
+    className="sc-jTrPJq hwdmtr"
+    testID="container-sku-product"
+  >
+    <RCTScrollView
+      data={[]}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      testID="banks-list"
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+</RCTSafeAreaView>
+`;

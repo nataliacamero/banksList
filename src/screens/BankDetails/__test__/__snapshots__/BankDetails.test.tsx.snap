@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BankDetails/> Should render the component 1`] = `
+<RCTSafeAreaView
+  className="sc-eDDNvR cHMPlu"
+>
+  <View
+    className="sc-beqWaB bCUvjq"
+  >
+    <Text
+      className="sc-gueYoa VqWBx"
+      testID="title-header-bank-details"
+    >
+      Bank Details
+    </Text>
+    <Text
+      className="sc-dmqHEX cobd"
+      testID="subtitle-header-bank-details"
+    >
+      Here you will find the information of the chosen Bank.
+    </Text>
+  </View>
+  <View
+    className="sc-jTrPJq iZereL"
+    testID="container-sku-product"
+  >
+    <Text
+      className="sc-gLDzan MWLoB"
+    >
+      Banregio
+    </Text>
+    <View
+      className="sc-iAEyYk khwrmI"
+    />
+    <Text>
+      Somos el banco de creadores
+      .
+    </Text>
+    <View
+      className="sc-iAEyYk khwrmI"
+    />
+    <Text>
+      Fecha de creacion: 
+      10
+       años.
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;
