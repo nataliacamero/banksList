@@ -11,6 +11,7 @@ export const addIdPropertyToBankInfo = (data: IResponse[]): IResponse[] => {
     data &&
     data.map((item: IResponse) => {
       item.id = generateId();
+
       return item;
     });
   return transformedData;

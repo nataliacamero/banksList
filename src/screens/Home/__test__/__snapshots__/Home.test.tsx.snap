@@ -25,7 +25,24 @@ exports[`<Home/> Should render the component 1`] = `
     testID="container-sku-product"
   >
     <RCTScrollView
-      data={[]}
+      data={
+        [
+          {
+            "age": 10,
+            "bankName": "Paga Todo",
+            "description": "Banco Paga Todo es Para Todos",
+            "id": "1682076626616870258",
+            "url": "https://firebasestorage.googleapis.com/v0/b/stagingpagatodo-286214.appspot.com/o/Challenge%2Flogo-pagatodo.jpeg?alt=media&token=38b6ac4d-85ac-4288-bada-88eb5a0dec20",
+          },
+          {
+            "age": 11,
+            "bankName": "BBVA Bancomer",
+            "description": "BBVA Bancomer Creando Oportunidades",
+            "id": "1682076626616825002",
+            "url": "https://firebasestorage.googleapis.com/v0/b/stagingpagatodo-286214.appspot.com/o/Challenge%2Flogo-bbva.jpeg?alt=media&token=435ed70e-061b-4a80-a216-c69cea04f068",
+          },
+        ]
+      }
       getItem={[Function]}
       getItemCount={[Function]}
       keyExtractor={[Function]}
@@ -43,7 +60,110 @@ exports[`<Home/> Should render the component 1`] = `
       testID="banks-list"
       viewabilityConfigCallbackPairs={[]}
     >
-      <View />
+      <View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              bankName="Paga Todo"
+              className="sc-hLseeU jhVNJZ"
+              source={
+                {
+                  "uri": "https://firebasestorage.googleapis.com/v0/b/stagingpagatodo-286214.appspot.com/o/Challenge%2Flogo-pagatodo.jpeg?alt=media&token=38b6ac4d-85ac-4288-bada-88eb5a0dec20",
+                }
+              }
+              testID="img-bank-logo"
+            />
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              bankName="BBVA Bancomer"
+              className="sc-hLseeU jhVNJZ"
+              source={
+                {
+                  "uri": "https://firebasestorage.googleapis.com/v0/b/stagingpagatodo-286214.appspot.com/o/Challenge%2Flogo-bbva.jpeg?alt=media&token=435ed70e-061b-4a80-a216-c69cea04f068",
+                }
+              }
+              testID="img-bank-logo"
+            />
+          </View>
+        </View>
+      </View>
     </RCTScrollView>
   </View>
 </RCTSafeAreaView>
